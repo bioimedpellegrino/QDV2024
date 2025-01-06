@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.selectedCities = ["Milano", "Roma", "Trieste", "Reggio Calabria"];
+    this.selectedCities = JSON.parse(localStorage.getItem('selectedCities') || '["Milano", "Roma", "Trieste", "Reggio Calabria"]');
     this.fetchData();
   }
 
@@ -106,6 +106,7 @@ export class AppComponent implements OnInit {
   }
 
   onCityChange(): void {
+    localStorage.setItem('selectedCities', JSON.stringify(this.selectedCities));
     this.onIndicatorChange();
   }
   
