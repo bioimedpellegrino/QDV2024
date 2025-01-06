@@ -16,18 +16,16 @@ export class AppComponent implements OnInit {
   data: any;
   cities: any;
   selectedIndicator: any;
-  selectedCity: any;
   selectedCities: any;
   chart!: Chart;
   colorMap: { [city: string]: string } = {};
 
   constructor(private http: HttpClient){
-
   }
 
   ngOnInit(){
+    this.selectedCities = ["Milano", "Roma", "Trieste", "Reggio Calabria"];
     this.fetchData();
-    this.initializeChart();
   }
 
   fetchData(): void {
@@ -44,9 +42,9 @@ export class AppComponent implements OnInit {
         name: data[city].denominazione
       }));
 
-      this.selectedIndicator = this.indicators[0];
+      this.selectedIndicator = "Canoni medi di locazione";
+      this.initializeChart();
       this.onIndicatorChange();
-
     });
   }
 
@@ -55,21 +53,13 @@ export class AppComponent implements OnInit {
     this.chart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+        labels: this.selectedCities,
         datasets: [
           {
             label: this.selectedIndicator,
-            data: [12, 19, 3, 5, 2, 3, 8, 9, 10, 11],
+            data: [],
             borderWidth: 1,
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(255, 159, 64, 0.2)',
-              'rgba(255, 205, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(201, 203, 207, 0.2)'
-            ],
+            backgroundColor: [],
           }
         ]
       },
