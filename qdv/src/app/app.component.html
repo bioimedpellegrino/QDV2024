@@ -1,7 +1,7 @@
 <!-- HTML: Component Template -->
 <div class="container mt-3">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 mt-1">
       <label for="indicatorSelect">Seleziona città:</label>
       <ng-select
         [items]="cities"
@@ -13,7 +13,7 @@
         placeholder="Seleziona una o più città">
       </ng-select>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 mt-1">
       <div class="form-group">
         <label for="indicatorSelect">Seleziona un indicatore:</label>
         <select
@@ -30,8 +30,7 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="chart-container">
-  <canvas id="chart"></canvas>
+  <div class="chart-container">
+    <canvas id="chart"></canvas>
+  </div>
 </div>
