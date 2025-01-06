@@ -1,0 +1,10 @@
+.chart-container {
+    width: 100%;
+    height: 500px; /* Puoi regolare l'altezza secondo le tue necessità */
+    position: relative;
+  }
+  
+  #chart {
+    width: 100% !important;
+    height: 100% !important;
+  }
